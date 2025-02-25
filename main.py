@@ -2,6 +2,19 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
+professions = [
+    "инженер-исследователь",
+    "пилот",
+    "строитель",
+    "экзобиолог",
+    "врач",
+    "инженер по терраформированию",
+    "климатолог",
+    "специалист по радиационной защите",
+    "астрогеолог",
+    "гляциолог"
+]
+
 @app.route('/')
 @app.route('/index')
 def index():
@@ -20,6 +33,17 @@ def training(prof):
         alt_text = "Схема расположения научных симуляторов"
 
     return render_template('training.html', header=header, image=image, alt_text=alt_text)
+
+@app.route('/list_prof/<list_type>')
+def list_prof(list_type):
+    header = "Список профессий для миссии на Марс"
+
+    return render_template(
+        'list_prof.html',
+        header=header,
+        list_type=list_type,
+        professions=professions
+    )
 
 if __name__ == '__main__':
     app.run(port=8080, host='127.0.0.1')

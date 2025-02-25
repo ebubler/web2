@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="text-center">{{ header }}</h2>
+<div class="text-start">
+    {% if list_type == 'ol' %}
+        <ol>
+            {% for profession in professions %}
+                <li>{{ profession }}</li>
+            {% endfor %}
+        </ol>
+    {% elif list_type == 'ul' %}
+        <ul>
+            {% for profession in professions %}
+                <li>{{ profession }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Допустимые значения: ol или ul.</p>
+    {% endif %}
+</div>
+{% endblock %}
