@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Автоматический ответ</h2>
+<div class="card" style="width: 400px;">
+    <div class="card-body">
+        <h4 class="card-title">Ваши данные:</h4>
+        <ul class="list-group">
+            <li class="list-group-item"><strong>Фамилия:</strong> {{ surname }}</li>
+            <li class="list-group-item"><strong>Имя:</strong> {{ name }}</li>
+            <li class="list-group-item"><strong>Образование:</strong> {{ education }}</li>
+            <li class="list-group-item"><strong>Профессия:</strong> {{ profession }}</li>
+            <li class="list-group-item"><strong>Пол:</strong> {{ sex }}</li>
+            <li class="list-group-item"><strong>Мотивация:</strong> {{ motivation }}</li>
+            <li class="list-group-item"><strong>Готовы остаться на Марсе:</strong> {{ ready }}</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

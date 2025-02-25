@@ -2,6 +2,17 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
+data = {
+    "title": "Автоматический ответ",
+    "surname": "Иванов",
+    "name": "Иван",
+    "education": "Высшее",
+    "profession": "инженер-исследователь",
+    "sex": "Мужик",
+    "motivation": "Хочу помочь колонизации Марса!",
+    "ready": "Да"
+}
+
 professions = [
     "инженер-исследователь",
     "пилот",
@@ -44,6 +55,11 @@ def list_prof(list_type):
         list_type=list_type,
         professions=professions
     )
+
+@app.route('/answer')
+@app.route('/auto_answer')
+def auto_answer():
+    return render_template('auto_answer.html', **data)
 
 if __name__ == '__main__':
     app.run(port=8080, host='127.0.0.1')
