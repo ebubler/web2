@@ -13,7 +13,6 @@ class LoginForm(FlaskForm):
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
-
 data = {
     "title": "Автоматический ответ",
     "surname": "Иванов",
@@ -42,6 +41,11 @@ professions = [
 @app.route('/index/<title>')
 def index(title):
     return render_template('base.html', title=title)
+
+@app.route('/distribution')
+def distribution():
+    astronauts = ["Капитан Джек", "Анна Смит", "Марк Твен", "Лара Крофт"]
+    return render_template('distribution.html', title="по каютам", astronauts=astronauts)
 
 @app.route('/training/<prof>')
 def training(prof):
